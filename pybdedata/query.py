@@ -9,15 +9,8 @@ import requests
 import json
 
 
-
-
-class BDEquery:
-
-    # Initialize variables
-    def __init__(self):
-
-        self.ulrMain = 'http://painelmunicipal.imb.go.gov.br/visao/'
-        self.parameters = {
+ulrMain = 'http://painelmunicipal.imb.go.gov.br/visao/'
+parameters = {
             "variableDescribe": 'variavel.php?formatado=0&json=1&codigovariavel=',
             "unidadeMedida": "unidade.php?formatado=0&json=1&codigounidade=",
             "localidades": 'localidade.php?formatado=0&json=1&codigolocalidade=&codigoibge=',
@@ -25,6 +18,8 @@ class BDEquery:
                                 {anofinal}|{ultimoano}|{periodo}|{seriehistorica}|{auxvar}|{auxund}|{auxvarfnt}|
                                 {auxfnt}|{auxvarnota}|{auxnota}|'''
         }
+
+class BDEquery:
 
     # Get variables datasets from databases statistics
     def getVariables(self, codvar:int=None) -> dict:
@@ -51,9 +46,9 @@ class BDEquery:
             |   bdeObj.getVariables(codvar=1) -> Get information variable the of code 1 in the BDE
         """
         if codvar is None:
-            url = self.ulrMain + self.parameters['variableDescribe']
+            url = ulrMain + parameters['variableDescribe']
         else:
-            url = self.ulrMain + self.parameters['variableDescribe'] + str(codvar)
+            url = ulrMain + parameters['variableDescribe'] + str(codvar)
 
         # Information requests
         data = requests.get(url)
@@ -87,9 +82,9 @@ class BDEquery:
             |   bdeObj.getUnits(codund=1) -> Get information measurement variable the of code 1 in the BDE.
         """
         if codund is None:
-            url = self.ulrMain + self.parameters['unidadeMedida']
+            url = ulrMain + parameters['unidadeMedida']
         else:
-            url = self.ulrMain + self.parameters['unidadeMedida'] + str(codund)
+            url = ulrMain + parameters['unidadeMedida'] + str(codund)
 
         # Requisicao da informacao
         data = requests.get(url)
@@ -115,7 +110,7 @@ class BDEquery:
 
         """
         # Request information
-        url = self.ulrMain + self.parameters['localidades']
+        url = ulrMain + parameters['localidades']
         data = requests.get(url)
         data = data.text
         data = json.loads(data)
@@ -187,7 +182,7 @@ class BDEquery:
 
 
         # URL dos dados
-        url = self.ulrMain + self.parameters['dados']
+        url = ulrMain + parameters['dados']
         url = url.format(locbde=None, codibge=param['codibge'], codvarbde=codvarbde,
                          anoinicial=param['initialyear'],anofinal=param['finalyear'],
                          ultimoano=ultimoano, periodo=periodo,seriehistorica=param["timeseries"],
