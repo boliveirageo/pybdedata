@@ -38,7 +38,7 @@ class BDEquery:
             |   Examples
             |   --------
             |
-            |   import pybde.query as bde
+            |   import pybdedata.query as bde
             |
             |   bdeObj = bde.BDEquery()
             |
