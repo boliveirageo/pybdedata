@@ -1,7 +1,7 @@
 from setuptools import setup,find_packages
 from pathlib import Path
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 DESCRIPTION = 'A module to access data from the Mauro Borges Statistic and Socioeconomic Institute (IMB), Goias - Brazil'
 KEYWORDS = ['statistics','data','IMB','Mauro Borges','Brazil']
 
