@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     pybde: A module to access Database Statistics from Mauro Borges Institute (IMB) 
-    (c) 2023 Bernard Silva de Oliveira [bernard.oliveira@goias.gov.br]
+    (c) 2024 Bernard Silva de Oliveira [bernard.oliveira@goias.gov.br]
 
 """
 
