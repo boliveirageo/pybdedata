@@ -9,6 +9,8 @@ import requests
 import json
 
 
+
+
 class BDEquery:
 
     # Initialize variables
@@ -77,7 +79,7 @@ class BDEquery:
             |   Examples
             |   --------
             |
-            |   import pybde.query as bde
+            |   import pybdedata.query as bde 
             |
             |   bdeObj = bde.BDEquery()
             |
@@ -100,19 +102,19 @@ class BDEquery:
     @property
     def getLocations(self) -> dict:
         """
-            Access data places (counties) in Statistics Database - IMB
+            Access locations (municipalities) in Statistics Database - IMB
             |
             |   Returns
             |   -------
             |   data: dict
-            |   import pybde.query as bde
+            |   import pybdedata.query as bde 
             |
             |   bdeObj = bde.BDEquery()
             |
             |   bdeObj.getLocations
 
         """
-        # Requisicao da informacao
+        # Request information
         url = self.ulrMain + self.parameters['localidades']
         data = requests.get(url)
         data = data.text
@@ -151,7 +153,7 @@ class BDEquery:
             |
             |   Examples
             |   --------
-            |   import pybde.query as bde
+            |   import pybdedata.query as bde
             |
             |   bdeObj = bde.BDEquery()
             |
